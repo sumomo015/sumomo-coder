@@ -128,3 +128,11 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# src
+src/index.ts
+src/input.txt
+
+# editor
+.vscode
+.idea
