@@ -43,6 +43,3 @@ jobs:
 
       - name: Lint
         run: pnpm run lint
-
-      - name: Generate
-        run: pnpm run build
