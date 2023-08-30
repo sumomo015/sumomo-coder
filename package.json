@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --configPlugin typescript",
     "live": "nodemon -e ts,txt --watch src --exec 'pnpm run build && node dist/index.cjs < src/input.txt'",
     "debug": "pnpm run build && node dist/index.cjs < src/input.txt",
     "lint-fix:prettier": "prettier --write .",

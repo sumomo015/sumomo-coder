@@ -3,8 +3,11 @@
     "target": "ESNext",
     "module": "ESNext",
     "allowJs": false,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
+    "moduleResolution": "node",
     "baseUrl": ".",
+    "types": ["node"],
     "paths": {
       "@utils/*": ["src/utils/*"]
     },

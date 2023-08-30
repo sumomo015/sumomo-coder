@@ -1,11 +1,12 @@
 import typescript from "@rollup/plugin-typescript";
+import { RollupOptions } from "rollup";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 
 /**
  * @type {import('rollup').RollupOptions}
  */
-const options = {
+const options: RollupOptions = {
   input: "src/index.ts",
   output: [
     {
@@ -16,13 +17,10 @@ const options = {
     {
       file: "dist/index.min.cjs",
       format: "cjs",
-      // eslint-disable-next-line
       plugins: [terser()],
     },
   ],
-  // eslint-disable-next-line
   plugins: [typescript(), nodeResolve()],
-  sourcemap: true,
 };
 
 export default options;
