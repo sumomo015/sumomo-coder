@@ -1,11 +1,11 @@
-import { getFirstLine } from "@utils/useInput";
+import { getFirstLine } from '@utils/useInput'
 
 async function main() {
-  const text = await getFirstLine();
+  const text = await getFirstLine()
 
-  const result = text.replaceAll(",", " ");
+  const result = text.replaceAll(',', ' ')
 
-  console.log(result);
+  console.log(result)
 }
 
-main().catch(console.error);
+main().catch(console.error)

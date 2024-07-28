@@ -134,5 +134,4 @@ src/index.ts
 src/input.txt
 
 # editor
-.vscode
 .idea

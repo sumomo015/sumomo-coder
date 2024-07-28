@@ -1,45 +1,34 @@
 name: CI
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
-# https://github.com/vitejs/vite/blob/main/.github/workflows/ci.yml
 env:
-  # 7 GiB by default on GitHub, setting to 6 GiB
-  # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources
   NODE_OPTIONS: --max-old-space-size=6144
 
-# Remove default permissions of GITHUB_TOKEN for security
-# https://docs.github.com/en/actions/using-jobs/assigning-permissions-to-jobs
 permissions: {}
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.number || github.sha }}
   cancel-in-progress: ${{ github.event_name != 'push' }}
 
+on:
+  pull_request:
+    branches:
+      - main
+
 jobs:
   ci:
+    name: ci
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-
     steps:
-      - uses: actions/checkout@v3
-      - run: corepack enable
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: "pnpm"
-
+      - run: corepack enable
       - name: Install dependencies
         run: pnpm install
-
-      - name: Typecheck
-        run: pnpm run type-check
-
+      - name: Format check
+        run: pnpm run format
+      - name: Type check
+        run: pnpm run typecheck
       - name: Lint
         run: pnpm run lint

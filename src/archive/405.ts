@@ -1,16 +1,16 @@
-import { getLinesAsInts } from "@utils/useInput";
+import { getLinesAsInts } from '@utils/useInput'
 
 async function main() {
-  const G = 9.8;
+  const G = 9.8
 
-  const [H, S] = await getLinesAsInts();
+  const [H, S] = await getLinesAsInts()
 
-  const t = Math.sqrt((2 * H) / G);
+  const t = Math.sqrt((2 * H) / G)
 
-  let dist = S * t;
+  let dist = S * t
 
-  dist = Math.round(dist * 100) / 100;
+  dist = Math.round(dist * 100) / 100
 
-  console.log(dist);
+  console.log(dist)
 }
-main().catch(console.error);
+main().catch(console.error)
