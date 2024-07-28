@@ -1,9 +1,9 @@
-import { getLinesAsStringsList } from "@utils/useInput";
+import { getLinesAsStringsList } from '@utils/useInput'
 
 async function main() {
-  const words = await getLinesAsStringsList();
+  const words = await getLinesAsStringsList()
 
-  const hapyArray = [0, 0, 0, 0];
+  const hapyArray = [0, 0, 0, 0]
 
   enum HAPY {
     H = 0,
@@ -14,27 +14,27 @@ async function main() {
 
   words[1].forEach((word) => {
     switch (word) {
-      case "H":
-        hapyArray[HAPY.H] += 1;
-        break;
-      case "A":
-        hapyArray[HAPY.A] += 1;
-        break;
-      case "P":
-        hapyArray[HAPY.P] += 1;
-        break;
-      case "Y":
-        hapyArray[HAPY.Y] += 1;
-        break;
+      case 'H':
+        hapyArray[HAPY.H] += 1
+        break
+      case 'A':
+        hapyArray[HAPY.A] += 1
+        break
+      case 'P':
+        hapyArray[HAPY.P] += 1
+        break
+      case 'Y':
+        hapyArray[HAPY.Y] += 1
+        break
     }
-  });
+  })
 
-  hapyArray[HAPY.P] = Math.floor(hapyArray[HAPY.P] / 2);
+  hapyArray[HAPY.P] = Math.floor(hapyArray[HAPY.P] / 2)
 
   // 最小値を求める
-  const min = Math.min(...hapyArray);
+  const min = Math.min(...hapyArray)
 
-  console.log(min);
+  console.log(min)
 }
 
-main().catch(console.error);
+main().catch(console.error)
